@@ -1,0 +1,104 @@
+
+<h3 align="center">Daftar Nilai Mahasiswa</h3>
+<table align="center" border="1" cellpadding="10" width="40%">
+    <thead>
+        <tr bgcolor="tomato">
+            <th>NO</th>
+            <th>NAMA</th>
+            <th>NILAI</th>
+            <th>KETERANGAN</th>
+            <th>GRADE</th>
+            <th>PREDIKAT</th>
+        </tr>
+    </thead>
+    <tbody>
+        <script language="javascript">
+            
+            let mahasiswa = [
+                {
+                    nama:"Budi",
+                    nilai:"75",
+                    grade:"",
+                    predikat:""
+                },
+                {
+                    nama:"Bedu",
+                    nilai:"55",
+                    grade:"",
+                    predikat:""
+                },
+                {
+                    nama:"Dedi",
+                    nilai:"95",
+                    grade:"",
+                    predikat:""
+                },
+                {
+                    nama:"Dudi",
+                    nilai:"88",
+                    grade:"",
+                    predikat:""
+                },
+                {
+                    nama:"Deden",
+                    nilai:"25",
+                    grade:"",
+                    predikat:""
+                },
+                {
+                    nama:"Desi",
+                    nilai:"65",
+                    grade:"",
+                    predikat:""
+                }
+            ]
+
+            let no = 1;
+            let warna, keterangan, grade, predikat;
+            for(m of mahasiswa){
+
+                warna = (no%2!=0?'yellow':'cyan')
+                keterangan = m.nilai>=60?"Lulus":"Gagal";
+                
+                if(m.nilai<=100&&m.nilai>=85){
+                    grade = "A"
+                } else if(m.nilai<=84&&m.nilai>=75){
+                    grade = "B"
+                } else if(m.nilai<=74&&m.nilai>=60){
+                    grade = "C"
+                } else if(m.nilai<=59&&m.nilai>=50){
+                    grade = "D"
+                } else{
+                    grade = "E"
+                }
+
+                switch(grade){
+                case "A":
+                    predikat = "Memuaskan";
+                    break;
+                case "B":
+                    predikat = "Bagus";
+                    break;
+                case "C":
+                    predikat = "Cukup";
+                    break;
+                case "D":
+                    predikat = "Kurang";
+                    break;
+                default:
+                    predikat = "Buruk";
+                }
+
+                document.write(`<tr bgcolor="${warna}">
+                    <td>${no++}</td>
+                    <td>${m.nama}</td>
+                    <td>${m.nilai}</td>
+                    <td>${keterangan}</td>
+                    <td>${grade}</td>
+                    <td>${predikat}</td>
+                </tr>`);
+            }
+
+        </script>
+    </tbody>
+</table>
